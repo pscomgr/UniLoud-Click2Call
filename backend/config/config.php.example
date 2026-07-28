@@ -1,0 +1,81 @@
+<?php
+/**
+ * UniLoud Click-to-Call public backend configuration.
+ *
+ * Install as /etc/uniloud-click2call-public/config.php with root:<web-group>
+ * ownership and mode 0640. Never place this file in the web root.
+ */
+return array(
+    'require_https' => true,
+
+    // Prefer one API client per person/device. Store only the SHA-256 digest of
+    // the long random browser secret.
+    'api_clients' => array(
+        'browser-205' => array(
+            'secret_sha256' => 'CHANGE_ME_64_HEX_SHA256',
+            'allowed_protocols' => array('pjsip'),
+            // Explicit allow-list. Endpoint/peer defaults to the extension.
+            'extensions' => array(
+                '205' => array(
+                    'name' => 'User 205',
+                    'protocols' => array('pjsip'),
+                    'pjsip_endpoint' => '205',
+                    // Used only if "sip" is also allowed.
+                    'sip_peer' => '205',
+                ),
+            ),
+        ),
+    ),
+
+    // Dedicated originate-only AMI account. Keep it on loopback.
+    'ami' => array(
+        'host' => '127.0.0.1',
+        'port' => 5038,
+        'username' => 'c2c-public',
+        'secret' => 'CHANGE_ME_LONG_RANDOM_AMI_SECRET',
+        'timeout_ms' => 10000,
+        'allow_remote' => false,
+    ),
+
+    'telephony' => array(
+        'outbound_context' => 'from-internal',
+        // PJSIP only. true uses one Local channel and one Dial() for every
+        // contact returned by PJSIP_DIAL_CONTACTS().
+        'ring_all_contacts' => true,
+        'pjsip_ring_context' => 'custom-c2c-public-ring',
+        'ring_timeout_seconds' => 30,
+    ),
+
+    'numbering' => array(
+        // Example for Greece. Adapt both prefixes and allowed patterns to the
+        // customer's dial plan. The server fails closed when patterns are empty.
+        'strip_prefixes' => array('+30', '0030'),
+        'prepend_prefix' => '',
+        'allowed_patterns' => array(
+            '/^(?:2\d{9}|69\d{8}|8\d{9}|1\d{4,5})$/D',
+        ),
+    ),
+
+    'rate_limit' => array(
+        'directory' => '/var/lib/uniloud-click2call-public/rate',
+        'preauth_max' => 20,
+        'preauth_window_seconds' => 60,
+        'client_max' => 30,
+        'client_window_seconds' => 60,
+        'directory_preauth_max' => 20,
+        'directory_preauth_window_seconds' => 60,
+        'directory_client_max' => 10,
+        'directory_client_window_seconds' => 60,
+    ),
+
+    'audit' => array(
+        'log_file' => '/var/log/uniloud-click2call-public/audit.log',
+        'log_destination' => true,
+        // Page context is opt-in in the browser and is not logged by default.
+        'log_page_url' => false,
+    ),
+
+    // X-Forwarded-For / X-Forwarded-Proto are trusted only from these exact
+    // reverse-proxy source IPs.
+    'trusted_proxy_ips' => array(),
+);

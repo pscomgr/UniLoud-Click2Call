@@ -1,0 +1,12 @@
+; UniLoud Click-to-Call Public v1.4.0
+; Add this context to /etc/asterisk/extensions_custom.conf only when
+; telephony.ring_all_contacts=true for PJSIP.
+
+[custom-c2c-public-ring]
+exten => _X!,1,NoOp(C2C public ring extension ${EXTEN} request ${C2C_PUBLIC_REQUEST_ID})
+ same => n,Set(C2C_PUBLIC_CONTACTS=${PJSIP_DIAL_CONTACTS(${C2C_PUBLIC_ENDPOINT})})
+ same => n,GotoIf($["${C2C_PUBLIC_CONTACTS}"=""]?no_contacts)
+ same => n,Dial(${C2C_PUBLIC_CONTACTS},${C2C_PUBLIC_RING_TIMEOUT})
+ same => n,Hangup()
+ same => n(no_contacts),NoOp(C2C public no PJSIP contacts for endpoint ${C2C_PUBLIC_ENDPOINT})
+ same => n,Hangup(20)

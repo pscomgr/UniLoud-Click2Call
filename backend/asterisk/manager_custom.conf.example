@@ -1,0 +1,11 @@
+; UniLoud Click-to-Call Public v1.4.0
+; Copy into /etc/asterisk/manager_custom.conf and replace the secret.
+; The AMI listener must remain on localhost or a restricted management network.
+
+[c2c-public]
+secret = CHANGE_ME_LONG_RANDOM_AMI_SECRET
+deny = 0.0.0.0/0.0.0.0
+permit = 127.0.0.1/255.255.255.255
+read = none
+write = originate
+writetimeout = 5000

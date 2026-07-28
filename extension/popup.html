@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UniLoud Click-to-Call</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" width="40" height="40" alt="">
+    <div>
+      <h1 data-i18n="appName">UniLoud Click-to-Call</h1>
+      <p id="version"></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="quick-call" aria-labelledby="quick-title">
+      <h2 id="quick-title" data-i18n="quickCallTitle">Quick call</h2>
+      <div class="inline">
+        <label class="sr-only" for="destination" data-i18n="destinationLabel">Phone number</label>
+        <input id="destination" type="tel" autocomplete="tel"
+               data-i18n-placeholder="destinationPlaceholder"
+               placeholder="+30 210 756 3001">
+        <button id="callBtn" class="primary" data-i18n="callButton">Call</button>
+      </div>
+    </section>
+
+    <details id="settingsDetails">
+      <summary data-i18n="settingsTitle">Connection settings</summary>
+      <section class="settings">
+        <label for="pbxUrl" data-i18n="pbxUrlLabel">PBX HTTPS URL</label>
+        <input id="pbxUrl" type="url" inputmode="url" autocomplete="url"
+               placeholder="https://pbx.example.com/uniloud-click2call">
+
+        <label for="apiId" data-i18n="apiIdLabel">API ID</label>
+        <input id="apiId" type="text" autocomplete="username" spellcheck="false">
+
+        <label for="apiSecret" data-i18n="apiSecretLabel">API secret</label>
+        <input id="apiSecret" type="password" autocomplete="current-password" spellcheck="false">
+
+        <label class="check">
+          <input id="rememberSecret" type="checkbox">
+          <span data-i18n="rememberSecretLabel">Remember the API secret on this device</span>
+        </label>
+
+        <label for="protocol" data-i18n="protocolLabel">PBX protocol</label>
+        <select id="protocol">
+          <option value="" data-i18n="chooseProtocol">Choose…</option>
+          <option value="pjsip">PJSIP</option>
+          <option value="sip">SIP / chan_sip</option>
+        </select>
+
+        <button id="connectBtn" class="secondary" data-i18n="connectButton">
+          Connect and load extensions
+        </button>
+
+        <label for="myExtension" data-i18n="extensionLabel">My extension</label>
+        <select id="myExtension" disabled>
+          <option value="" data-i18n="connectFirst">Connect first…</option>
+        </select>
+
+        <label class="check">
+          <input id="sendPageContext" type="checkbox">
+          <span data-i18n="pageContextLabel">Send a sanitized page URL with calls</span>
+        </label>
+        <p class="hint" data-i18n="pageContextHint">
+          Off by default. Query strings, fragments and URL credentials are removed.
+        </p>
+
+        <div class="button-row">
+          <button id="saveBtn" class="primary" data-i18n="saveButton">Save</button>
+          <button id="clearBtn" class="danger" data-i18n="clearButton">Clear</button>
+        </div>
+      </section>
+    </details>
+
+    <section class="page-access" aria-labelledby="page-access-title">
+      <div>
+        <h2 id="page-access-title" data-i18n="pageAccessTitle">Page phone detection</h2>
+        <p id="pageAccessState"></p>
+      </div>
+      <button id="pageAccessBtn" class="secondary"></button>
+    </section>
+
+    <p id="status" role="status" aria-live="polite"></p>
+    <a id="aboutLink" href="about.html" target="_blank" data-i18n="privacyAndHelp">
+      Privacy and setup help
+    </a>
+  </main>
+
+  <script src="lib/core.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

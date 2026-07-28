@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UniLoud Click-to-Call</title>
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+  <main>
+    <header>
+      <img src="icons/icon128.png" width="88" height="88" alt="">
+      <div>
+        <p class="eyebrow">UniLoud Solutions</p>
+        <h1 data-i18n="appName">UniLoud Click-to-Call</h1>
+        <p data-i18n="aboutLead">
+          Place calls from Chrome through your own FreePBX or Asterisk server.
+        </p>
+      </div>
+    </header>
+
+    <section>
+      <h2 data-i18n="aboutArchitectureTitle">How it works</h2>
+      <ol>
+        <li data-i18n="aboutStepOne">Your administrator installs the PHP 8.x backend on your PBX.</li>
+        <li data-i18n="aboutStepTwo">You enter the PBX HTTPS URL and your personal API credentials.</li>
+        <li data-i18n="aboutStepThree">The extension asks the PBX to ring your phone, then connects the destination.</li>
+      </ol>
+      <p class="notice" data-i18n="aboutNoRelay">
+        There is no UniLoud cloud relay. Call details go only to the PBX URL you configure.
+      </p>
+    </section>
+
+    <section>
+      <h2 data-i18n="aboutPrivacyTitle">Privacy choices</h2>
+      <ul>
+        <li data-i18n="aboutPrivacyOne">Automatic page phone detection is optional and requires a separate permission.</li>
+        <li data-i18n="aboutPrivacyTwo">Page URL context is off by default and removes query strings, fragments and credentials.</li>
+        <li data-i18n="aboutPrivacyThree">Your API secret is restricted to trusted extension pages; you can keep it session-only.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-i18n="aboutSetupTitle">First setup</h2>
+      <p data-i18n="aboutSetupText">
+        Open the extension popup, expand Connection settings, connect to your PBX and select your extension.
+      </p>
+    </section>
+
+    <footer>
+      <span id="version"></span>
+      <span>© 2026 UniLoud Solutions</span>
+    </footer>
+  </main>
+  <script src="about.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Privacy Policy — UniLoud Click-to-Call</title>
+  <style>
+    :root { font: 16px/1.6 system-ui, sans-serif; color-scheme: light dark; }
+    body { margin: 0; background: Canvas; color: CanvasText; }
+    main { max-width: 760px; margin: 0 auto; padding: 42px 22px 72px; }
+    h1 { line-height: 1.15; margin-bottom: .25rem; }
+    h2 { margin-top: 2rem; line-height: 1.25; }
+    .date { color: GrayText; }
+    .notice { border-left: 4px solid #168a8c; padding: .7rem 1rem; background: color-mix(in srgb, #168a8c 10%, Canvas); }
+    a { color: #168a8c; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Privacy Policy — UniLoud Click-to-Call</h1>
+  <p class="date">Effective 28 July 2026</p>
+  <p class="notice">The extension sends call requests directly to the
+    organization’s configured FreePBX/Asterisk server. There is no UniLoud
+    cloud relay.</p>
+
+  <h2>Data processed</h2>
+  <p>The extension processes the PBX HTTPS URL, API identifier and secret,
+    SIP/PJSIP choice, selected extension and the destination number when the
+    user requests a call. A sanitized page URL is processed only if the user
+    enables that option.</p>
+  <p>Automatic phone detection is optional. Page text is examined locally to
+    make phone-like text clickable. Page content is not uploaded as a bulk
+    dataset. A selected number is sent only when the user initiates a call.
+    URL credentials, query strings and fragments are removed from optional
+    page context.</p>
+
+  <h2>Local storage</h2>
+  <p>Connection settings use Chrome extension storage. The API secret is
+    session-only by default and is stored persistently only when the user
+    selects the remember-secret option. Users can clear settings from the
+    popup or remove the extension.</p>
+
+  <h2>PBX processing and retention</h2>
+  <p>The selected PBX may process request ID, client IP, API client, extension,
+    protocol, destination, extension version and result for security and
+    troubleshooting. Page URLs are not logged by the supplied backend unless
+    the PBX administrator explicitly enables that setting. The PBX operator
+    controls server-side access, retention and deletion.</p>
+
+  <h2>Sharing and use</h2>
+  <p>The extension does not sell data, serve advertising, perform analytics or
+    use data for creditworthiness or unrelated purposes. It does not transfer
+    call data to UniLoud or third parties. Data is sent only to the PBX selected
+    by the user to perform the requested call. If UniLoud separately operates a
+    managed PBX, the applicable customer agreement governs that service.</p>
+
+  <h2>Security</h2>
+  <p>The extension requires HTTPS for PBX endpoints, makes page access optional
+    and does not download or execute remote code. PBX operators are responsible
+    for certificates, firewall policy, software updates, credential rotation
+    and extension authorization.</p>
+
+  <h2>Contact and changes</h2>
+  <p>The product is intended for organizational telephony and is not directed
+    to children. Material policy changes will update this page and its effective
+    date. Use the private security or support channel in the official
+    UniLoud Click-to-Call GitHub repository; never post secrets or call data in
+    a public issue.</p>
+
+  <p lang="el"><strong>Σύνοψη:</strong> Τα requests αποστέλλονται μόνο στο PBX
+    που ορίζει ο χρήστης. Δεν υπάρχει UniLoud cloud relay, analytics ή
+    διαφημίσεις. Η πρόσβαση σε σελίδες και το page URL context είναι
+    προαιρετικά.</p>
+</main>
+</body>
+</html>

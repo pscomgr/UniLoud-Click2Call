@@ -1,0 +1,9 @@
+/dist/
+*.log
+*.swp
+.DS_Store
+.env
+.env.*
+config.php
+*.pem
+*.key
