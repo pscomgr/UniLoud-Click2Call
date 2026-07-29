@@ -1,6 +1,6 @@
 # UniLoud Click-to-Call Public v1.4.0 — Οδηγός εγκατάστασης
 
-Ο οδηγός αφορά πελάτες χωρίς Kaseya BMS, με FreePBX/Asterisk και εσωτερικά
+Ο οδηγός αφορά πελάτες με FreePBX/Asterisk και εσωτερικά
 PJSIP ή chan_sip. Η αρχιτεκτονική είναι:
 
 ```text
