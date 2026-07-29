@@ -13,8 +13,7 @@ The project contains two installable components:
 It supports PJSIP and chan_sip. PJSIP deployments can ring every registered
 contact for an extension through `PJSIP_DIAL_CONTACTS()`.
 
-The public edition does **not** contain Kaseya BMS, ticket, CDR, Time Log,
-recording, employee-mapping or UniLoud cloud-relay code. Call requests go
+The public edition does **not** contain CDR, Time Log, recording. Call requests go
 directly from the extension to the HTTPS PBX URL configured by the customer.
 
 ## Documentation
